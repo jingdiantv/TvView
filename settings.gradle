@@ -1,3 +1,4 @@
+
 pluginManagement {
     repositories {
         gradlePluginPortal()
@@ -15,3 +16,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "TvView"
 include ':app'
+include ':lib-common'
+include ':lib-mvvm'

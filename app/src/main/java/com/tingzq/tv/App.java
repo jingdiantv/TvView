@@ -1,6 +1,5 @@
 package com.tingzq.tv;
 
-import android.app.Application;
 import android.content.Context;
 import android.support.annotation.Nullable;
 
@@ -12,8 +11,9 @@ import com.orhanobut.logger.FormatStrategy;
 import com.orhanobut.logger.Logger;
 import com.orhanobut.logger.PrettyFormatStrategy;
 import com.tencent.bugly.crashreport.CrashReport;
+import com.tingzq.mvvm.base.BaseApplication;
 
-public class App extends Application {
+public class App extends BaseApplication {
 
     @Override
     public void onCreate() {

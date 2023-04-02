@@ -4,14 +4,15 @@ plugins {
 
 
 android {
-    compileSdk 32
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
 
     defaultConfig {
-        applicationId "com.tingzq.tv"
-        minSdk 19
-        targetSdk 32
-        versionCode 1
-        versionName "1.0"
+
+        applicationId rootProject.ext.android.applicationId
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
 
         multiDexEnabled true
 
@@ -24,14 +25,19 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    signingConfigs{
-        release{
+    signingConfigs {
+        release {
             keyAlias 'nnnd'
             keyPassword '123456'
             storeFile file('../local_key.jks')
             storePassword '123456'
         }
     }
+
+    dataBinding {
+        enabled true
+    }
+
 
 
     buildTypes {
@@ -88,6 +94,8 @@ dependencies {
     }
 
     implementation 'com.orhanobut:logger:2.2.0'
+
+    implementation project(':lib-mvvm')
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
