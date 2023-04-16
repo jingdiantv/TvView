@@ -4,7 +4,7 @@ ext {
             compileSdkVersion: 28,
             buildToolsVersion: "28.0.0",
             applicationId    : "com.tingzq.tvView",
-            minSdkVersion    : 15,
+            minSdkVersion    : 19,
             targetSdkVersion : 28,
             versionCode      : 1,
             versionName      : "1.0",
@@ -14,51 +14,103 @@ ext {
             "support-version": "1.0.0",
             "junit-version"  : "4.12",
     ]
-    //support配置
-    support = [
-            'support-v4'              : "androidx.legacy:legacy-support-v4:${versions["support-version"]}",
-            'appcompat-v7'            : "androidx.appcompat:appcompat:${versions["support-version"]}",
-            'recyclerview-v7'         : "androidx.recyclerview:recyclerview:${versions["support-version"]}",
-            'support-v13'             : "androidx.legacy:legacy-support-v13:${versions["support-version"]}",
-            'support-fragment'        : "androidx.fragment:fragment:${versions["support-version"]}",
-            'design'                  : "com.google.android.material:material:${versions["support-version"]}",
-            'animated-vector-drawable': "androidx.vectordrawable:vectordrawable-animated:${versions["support-version"]}",
-            'junit'                   : "junit:junit:${versions["junit-version"]}",
-    ]
+
+
     //依赖第三方配置
     dependencies = [
-            //rxjava
-            "rxjava"                               : "io.reactivex.rxjava2:rxjava:2.2.3",
-            "rxandroid"                            : "io.reactivex.rxjava2:rxandroid:2.1.0",
-            //rx系列与View生命周期同步
-            "rxlifecycle"                          : "com.trello.rxlifecycle2:rxlifecycle:2.2.2",
-            "rxlifecycle-components"               : "com.trello.rxlifecycle2:rxlifecycle-components:2.2.2",
-            //rxbinding
-            "rxbinding"                            : "com.jakewharton.rxbinding2:rxbinding:2.1.1",
-            //rx 6.0权限请求
-            "rxpermissions"                        : "com.github.tbruyelle:rxpermissions:0.10.2",
-            //network
-            "okhttp"                               : "com.squareup.okhttp3:okhttp:3.10.0",
-            "retrofit"                             : "com.squareup.retrofit2:retrofit:2.4.0",
-            "converter-gson"                       : "com.squareup.retrofit2:converter-gson:2.4.0",
-            "adapter-rxjava"                       : "com.squareup.retrofit2:adapter-rxjava2:2.4.0",
-            //glide图片加载
-            "glide"                                : "com.github.bumptech.glide:glide:4.11.0",
-            "glide-compiler"                       : "com.github.bumptech.glide:compiler:4.11.0",
-            //json解析
-            "gson"                                 : "com.google.code.gson:gson:2.8.6",
-            //material-dialogs
-            "material-dialogs-core"                : "com.afollestad.material-dialogs:core:0.9.6.0",
-            "material-dialogs-commons"             : "com.afollestad.material-dialogs:commons:0.9.6.0",
-            //recyclerview的databinding套装
-            "bindingcollectionadapter"             : "me.tatarka.bindingcollectionadapter2:bindingcollectionadapter:4.0.0",
-            "bindingcollectionadapter-recyclerview": "me.tatarka.bindingcollectionadapter2:bindingcollectionadapter-recyclerview:4.0.0",
-            "bindingcollectionadapter-viewpager2"  : "me.tatarka.bindingcollectionadapter2:bindingcollectionadapter-viewpager2:4.0.0",
-            //Google AAC
-            "lifecycle-extensions"                 : "androidx.lifecycle:lifecycle-extensions:2.0.0",
-            "lifecycle-compiler"                   : "androidx.lifecycle:lifecycle-compiler:2.0.0",
-            //MVVMHabit
-            "MVVMHabit"                            : "com.github.goldze:MVVMHabit:4.0.0",
+            // AndroidX 兼容库
+            // https://github.com/androidx/androidx
+            'androidx'                             : 'androidx.appcompat:appcompat:1.4.2',
+
+            // Material 安卓部件风格设计库
+            // https://github.com/material-components/material-components-android
+            'material-design'                      : 'com.google.android.material:material:1.4.0',
+
+            // 反应式编程与安卓扩展异步UI事件反应式编程
+            // https://github.com/ReactiveX/RxAndroid
+            'rxjava'                               : 'io.reactivex.rxjava2:rxjava:2.2.21',
+            'rxandroid'                            : 'io.reactivex.rxjava2:rxandroid:2.1.1',
+
+            // 反应式编程与安卓组件(活动或者碎片)生命周期同步,防止内存泄露
+            // https://github.com/trello/RxLifecycle
+            'rxlifecycle'                          : 'com.trello.rxlifecycle4:rxlifecycle:4.0.2',
+            'rxlifecycle-components'               : 'com.trello.rxlifecycle4:rxlifecycle-components:4.0.2',
+
+            // 安卓UI部件的RxJava绑定API
+            // https://github.com/JakeWharton/RxBinding
+            'rxbinding'                            : 'com.jakewharton.rxbinding4:rxbinding:4.0.0',
+
+            // 系统权限请求
+            // https://github.com/tbruyelle/RxPermissions
+            'rxpermissions'                        : 'com.github.tbruyelle:rxpermissions:0.12',
+
+            // 网络请求客户端
+            // https://github.com/square/retrofit
+            'retrofit'                             : 'com.squareup.retrofit2:retrofit:2.9.0',
+            'converter-gson'                       : 'com.squareup.retrofit2:converter-gson:2.9.0',
+            'adapter-rxjava'                       : 'com.squareup.retrofit2:adapter-rxjava2:2.9.0',
+            'okhttp'                               : 'com.squareup.okhttp3:okhttp:4.9.3',
+            'okhttp-logging'                       : 'com.squareup.okhttp3:logging-interceptor:4.10.0',
+
+            // Json 解析工具
+            // https://github.com/google/gson
+            'gson'                                 : 'com.google.code.gson:gson:2.9.1',
+
+
+            // 依赖注入框架dagger2,类似于spring的ioc
+            // 参考文档:https://developer.android.com/training/dependency-injection/dagger-android?hl=zh-cn
+            'dagger2'                              : 'com.google.dagger:dagger:2.17',
+            'dagger2-compiler'                     : 'com.google.dagger:dagger-compiler:2.17',
+
+
+            // 设置自定义字体
+            // https://github.com/InflationX/Calligraphy
+            'calligraphy3'                         : 'io.github.inflationx:calligraphy3:3.1.1',
+            'calligraphy3-viewpump'                : 'io.github.inflationx:viewpump:2.0.3',
+
+
+            "unpeek-livedata"                      : "com.kunminx.arch:unpeek-livedata:7.8.0",
+
+            "livedata"                             : "androidx.lifecycle:lifecycle-livedata:2.3.1",
+
+            // junit单元测试
+            // https://developer.android.com/training/testing/unit-testing/local-unit-tests?hl=zh-cn
+            'junit'                                : 'junit:junit:4.12',
+
+            // 安卓插桩集成测试
+            // https://developer.android.com/training/testing/unit-testing/instrumented-unit-tests?hl=zh-cn
+            'android-test-core'                    : 'androidx.test:core:1.0.0',
+            'android-test-runner'                  : 'androidx.test:runner:1.1.0',
+            'android-test-junit'                   : 'androidx.test.ext:junit:1.0.0',
+
+            // 内存泄漏监测
+            // https://github.com/square/leakcanary
+            'leakcanary'                           : 'com.squareup.leakcanary:leakcanary-android:2.7',
+
+
+            // 腾讯bugly崩溃日志分析平台异常捕捉
+            // https://bugly.qq.com/docs/user-guide/instruction-manual-android/?v=20190418140644
+            'crashreport'                          : 'com.tencent.bugly:crashreport:3.4.4',
+            'nativecrashreport'                    : 'com.tencent.bugly:nativecrashreport:3.9.2',
+
+            // Material 安卓部件风格设计库
+            // https://github.com/material-components/material-components-android
+            'material-design'                      : 'com.google.android.material:material:1.4.0',
+
+            // material风格对话框
+            // https://github.com/afollestad/material-dialogs
+            'material'                             : 'com.afollestad.material-dialogs:core:0.9.6.0',
+            'material-commons'                     : 'com.afollestad.material-dialogs:commons:0.9.6.0',
+
+            // glide图片加载库
+            // https://github.com/bumptech/glide
+            'glide'                                : 'com.github.bumptech.glide:glide:4.12.0',
+
+            // 腾讯 MMKV
+            // https://github.com/Tencent/MMKV
+            // https://www.jianshu.com/p/8f346d1984a2
+            'mmkv-static'                          : 'com.tencent:mmkv-static:1.2.10',
+
     ]
 }
 
