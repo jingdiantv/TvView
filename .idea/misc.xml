@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/TingZQ/Desktop/TvView/app/src/main/res/layout/activity_main.xml" value="0.4541343669250646" />
+        <entry key="..\:/Users/TingZQ/Desktop/TvView/lib-common/src/main/res/layout/activity_container.xml" value="0.4541343669250646" />
+        <entry key="..\:/Users/TingZQ/Desktop/TvView/lib-common/src/main/res/layout/activity_crash.xml" value="0.4541343669250646" />
         <entry key="..\:/Users/TingZQ/Desktop/TvView/lib-mvvm/src/main/res/layout/activity_container.xml" value="0.4541343669250646" />
         <entry key="..\:/Users/TingZQ/Desktop/TvView/lib-mvvm/src/main/res/layout/customactivityoncrash_default_error_activity.xml" value="0.4541343669250646" />
       </map>

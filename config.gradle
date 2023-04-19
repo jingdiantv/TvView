@@ -20,11 +20,15 @@ ext {
     dependencies = [
             // AndroidX 兼容库
             // https://github.com/androidx/androidx
-            'androidx'                             : 'androidx.appcompat:appcompat:1.4.2',
+            'androidx'                             : 'androidx.appcompat:appcompat:1.3.1',
 
             // Material 安卓部件风格设计库
             // https://github.com/material-components/material-components-android
             'material-design'                      : 'com.google.android.material:material:1.4.0',
+
+            'constraintlayout'                     : 'androidx.constraintlayout:constraintlayout:2.0.4',
+
+            'autosize'                             : 'com.github.JessYanCoding:AndroidAutoSize:v1.2.1',
 
             // 反应式编程与安卓扩展异步UI事件反应式编程
             // https://github.com/ReactiveX/RxAndroid
@@ -76,12 +80,14 @@ ext {
             // junit单元测试
             // https://developer.android.com/training/testing/unit-testing/local-unit-tests?hl=zh-cn
             'junit'                                : 'junit:junit:4.12',
-
             // 安卓插桩集成测试
             // https://developer.android.com/training/testing/unit-testing/instrumented-unit-tests?hl=zh-cn
             'android-test-core'                    : 'androidx.test:core:1.0.0',
             'android-test-runner'                  : 'androidx.test:runner:1.1.0',
             'android-test-junit'                   : 'androidx.test.ext:junit:1.0.0',
+
+            'espresso'                             : 'androidx.test.espresso:espresso-core:3.4.0',
+
 
             // 内存泄漏监测
             // https://github.com/square/leakcanary
@@ -92,10 +98,6 @@ ext {
             // https://bugly.qq.com/docs/user-guide/instruction-manual-android/?v=20190418140644
             'crashreport'                          : 'com.tencent.bugly:crashreport:3.4.4',
             'nativecrashreport'                    : 'com.tencent.bugly:nativecrashreport:3.9.2',
-
-            // Material 安卓部件风格设计库
-            // https://github.com/material-components/material-components-android
-            'material-design'                      : 'com.google.android.material:material:1.4.0',
 
             // material风格对话框
             // https://github.com/afollestad/material-dialogs
@@ -110,6 +112,7 @@ ext {
             // https://github.com/Tencent/MMKV
             // https://www.jianshu.com/p/8f346d1984a2
             'mmkv-static'                          : 'com.tencent:mmkv-static:1.2.10',
+            'leanback'                             :'androidx.leanback:leanback:1.0.0'
 
     ]
 }

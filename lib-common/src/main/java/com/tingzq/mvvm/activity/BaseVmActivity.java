@@ -1,5 +1,6 @@
 package com.tingzq.mvvm.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -7,6 +8,8 @@ import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.tingzq.mvvm.R;
+import com.tingzq.mvvm.constant.AppConstant;
 import com.tingzq.mvvm.viewmodel.BaseViewModel;
 import com.trello.rxlifecycle4.components.support.RxAppCompatActivity;
 
@@ -69,7 +72,92 @@ public abstract class BaseVmActivity<VM extends BaseViewModel> extends RxAppComp
 
 
     protected void registerUiObservable(){
+        /** 显示加载弹出框 */
+        viewModel.getUiObservable().getShowDialogEvent().observe(this, title -> {
+            if (materialDialog != null) {
+                materialDialog = materialDialog.getBuilder().title(title).build();
+                materialDialog.show();
+            } else {
+                MaterialDialog.Builder builder = new MaterialDialog.Builder(this)
+                        .title(title)
+                        .progress(true, 0)
+                        .progressIndeterminateStyle(true)
+                        .canceledOnTouchOutside(false)
+                        .backgroundColorRes(R.color.white)
+                        .keyListener((dialog, keyCode, event) -> false);
+                materialDialog = builder.show();
+            }
+        });
 
+        /** 关闭加载弹出框 */
+        viewModel.getUiObservable().getCloseDialogEvent().observe(this, v -> {
+            if (materialDialog != null && materialDialog.isShowing()) materialDialog.dismiss();
+        });
+
+        /** 进入活动 */
+        viewModel.getUiObservable().getStartActivityEvent().observe(this, params -> {
+            Class<?> clz = (Class<?>) params.get(AppConstant.ACTIVITY_CLASS);
+            Bundle bundle = (Bundle) params.get(AppConstant.BUNDLE);
+            startActivity(clz, bundle);
+        });
+
+        /** 进入碎片容器活动 */
+        viewModel.getUiObservable().getStartFragmentContainerActivityEvent().observe(this, params -> {
+            String containerFragmentName = (String) params.get(AppConstant.CONTAINER_FRAGMENT_NAME);
+            Bundle bundle = (Bundle) params.get(AppConstant.BUNDLE);
+            startFragmentContainerActivity(containerFragmentName, bundle);
+        });
+
+        /** 关闭界面 */
+        viewModel.getUiObservable().getFinishEvent().observe(this, v -> finish());
+
+        /** 返回上一层 */
+        viewModel.getUiObservable().getOnBackPressedEvent().observe(this, v -> onBackPressed());
+
+    }
+
+
+    /**
+     * 进入活动
+     * @param clz 进入活动类
+     */
+    public void startActivity(Class<?> clz) {
+        startActivity(clz, null);
+    }
+
+    /**
+     * 进入活动
+     * @param clz 进入活动类
+     * @param bundle 进入活动所携带的数据
+     */
+    public void startActivity(Class<?> clz, Bundle bundle) {
+        Intent intent = new Intent(this, clz);
+        if (bundle != null) {
+            intent.putExtras(bundle);
+        }
+        startActivity(intent);
+    }
+
+    /**
+     * 进入碎片容器活动
+     * @param containerFragmentName 所跳转的目的Fragment名称
+     */
+    public void startFragmentContainerActivity(String containerFragmentName) {
+        startFragmentContainerActivity(containerFragmentName, null);
+    }
+
+    /**
+     * 进入碎片容器活动
+     * @param containerFragmentName 所跳转的目的Fragment名称
+     * @param bundle 进入碎片容器活动所携带的数据
+     */
+    public void startFragmentContainerActivity(String containerFragmentName, Bundle bundle) {
+        Intent intent = new Intent(this, FragmentContainerActivity.class);
+        intent.putExtra(AppConstant.CONTAINER_FRAGMENT_NAME, containerFragmentName);
+        if (bundle != null) {
+            intent.putExtra(AppConstant.BUNDLE, bundle);
+        }
+        startActivity(intent);
     }
 
 
