@@ -8,10 +8,15 @@
         <entry key="..\:/Users/TingZQ/Desktop/TvView/lib-common/src/main/res/layout/activity_crash.xml" value="0.4541343669250646" />
         <entry key="..\:/Users/TingZQ/Desktop/TvView/lib-mvvm/src/main/res/layout/activity_container.xml" value="0.4541343669250646" />
         <entry key="..\:/Users/TingZQ/Desktop/TvView/lib-mvvm/src/main/res/layout/customactivityoncrash_default_error_activity.xml" value="0.4541343669250646" />
+        <entry key="..\:/Users/TingZQ/Desktop/TvView/module-toilet/src/main/res/layout/activity_irregular.xml" value="0.4541343669250646" />
+        <entry key="..\:/Users/TingZQ/Desktop/TvView/module-toilet/src/main/res/layout/activity_irregular_vertical.xml" value="0.4541343669250646" />
+        <entry key="..\:/Users/TingZQ/Desktop/TvView/module-toilet/src/main/res/layout/activity_main.xml" value="0.4541343669250646" />
+        <entry key="..\:/Users/TingZQ/Desktop/TvView/module-toilet/src/main/res/layout/activity_regular.xml" value="0.4541343669250646" />
+        <entry key="..\:/Users/TingZQ/Desktop/TvView/module-toilet/src/main/res/layout/activity_regular_vertical.xml" value="0.4541343669250646" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

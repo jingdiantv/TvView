@@ -85,8 +85,7 @@ dependencies {
     implementation rootProject.ext.dependencies.nativecrashreport
 
     implementation rootProject.ext.dependencies.leanback
-
-    implementation project(':lib-common')
+    implementation project(':lib-mvvm')
 
 
     testImplementation rootProject.ext.dependencies.junit
