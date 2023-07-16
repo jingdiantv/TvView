@@ -16,6 +16,6 @@ dependencyResolutionManagement {
 }
 rootProject.name = "TvView"
 include ':app'
-include ':lib-mvvm'
 include ':lib-view'
-include ':module-toilet'
+include ':lib-websocket'
+include ':lib-base'
